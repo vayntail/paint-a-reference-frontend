@@ -1,7 +1,11 @@
-import React from "react";
+import Header from "../components/Header";
 
 const ChallengesPage = () => {
-  return <div>ChallengesPage</div>;
+  return (
+    <div>
+      <Header title="Challenges" />
+    </div>
+  );
 };
 
 export default ChallengesPage;

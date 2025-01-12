@@ -1,7 +1,11 @@
-import React from "react";
+import Header from "../components/Header";
 
 const StudiesPage = () => {
-  return <div>StudiesPage</div>;
+  return (
+    <div>
+      <Header title="Studies" />
+    </div>
+  );
 };
 
 export default StudiesPage;

@@ -7,12 +7,14 @@ import ChallengesPage from "./routers/ChallengesPage";
 function App() {
   return (
     <>
-      <Nav />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/studies" element={<StudiesPage />} />
-        <Route path="/challenges" element={<ChallengesPage />} />
-      </Routes>
+      <div className="flex">
+        <Nav />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/studies" element={<StudiesPage />} />
+          <Route path="/challenges" element={<ChallengesPage />} />
+        </Routes>
+      </div>
     </>
   );
 }
