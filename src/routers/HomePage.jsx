@@ -1,10 +1,9 @@
-import React from "react";
 import Header from "../components/Header";
 
-const HomePage = () => {
+const HomePage = ({ user }) => {
   return (
-    <div>
-      <Header title="References" />
+    <div className="w-full">
+      <Header title="References" user={user} />
     </div>
   );
 };
