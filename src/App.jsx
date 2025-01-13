@@ -1,12 +1,13 @@
 import { Route, Routes } from "react-router";
 import { useState } from "react";
 import Nav from "./components/Nav";
-import HomePage from "./routers/HomePage";
-import StudiesPage from "./routers/StudiesPage";
-import ChallengesPage from "./routers/ChallengesPage";
+import HomePage from "./pages/HomePage";
+import StudiesPage from "./pages/StudiesPage";
+import ChallengesPage from "./pages/ChallengesPage";
+import UploadPage from "./pages/UploadPage";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
 
   return (
     <>
@@ -14,8 +15,13 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<HomePage user={user} />} />
-          <Route path="/studies" element={<StudiesPage />} />
-          <Route path="/challenges" element={<ChallengesPage />} />
+          <Route path="/studies" element={<StudiesPage user={user} />} />
+          <Route path="/challenges" element={<ChallengesPage user={user} />} />
+          {user ? (
+            <Route path="/upload" element={<UploadPage user={user} />} />
+          ) : (
+            <></>
+          )}
         </Routes>
       </div>
     </>

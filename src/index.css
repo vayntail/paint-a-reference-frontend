@@ -13,4 +13,7 @@ h1 {
   .nav-button {
     @apply bg-slate-100 p-2 rounded-sm w-14 hover:bg-slate-400;
   }
+  .signin-button {
+    @apply bg-slate-300 p-2 rounded-sm w-14 hover:bg-slate-400;
+  }
 }
