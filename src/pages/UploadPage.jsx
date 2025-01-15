@@ -8,58 +8,54 @@ const UploadPage = ({ user }) => {
     setFile(e.target.files[0]);
   };
 
-  // Convert file to Base64
-  //   const toBase64 = (file) => {
-  //     return new Promise((resolve, reject) => {
-  //       const reader = new FileReader();
-  //       reader.readAsDataURL(file);
-  //       reader.onload = () => resolve(reader.result.split(",")[1]); // Remove "data:image/jpeg;base64,"
-  //       reader.onerror = (error) => reject(error);
-  //     });
-  //   };
+  // conver file to base64
+  const toBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      // remove "data:image/jpeg;base64,"
+      reader.onload = () => resolve(reader.result.split(",")[1]);
+      reader.onerror = (error) => reject(error);
+    });
+  };
 
-  //   // on image uploaded
-  //   const onFileUpload = async () => {
-  //     const apiKey = import.meta.env.VITE_API_KEY;
-  //     console.log(apiKey);
-  //     const base64Image = await toBase64(file);
+  // on image uploaded
+  const onFileUpload = async () => {
+    // make post request
+    try {
+      const base64Image = await toBase64(file);
 
-  //     const formData = new FormData();
-  //     // formData.set("key", apiKey);
-  //     formData.append("image", base64Image); // add image to formData
+      const response = await fetch("http://localhost:8000/upload", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ image: base64Image }),
+      });
 
-  //     console.log(formData);
+      const result = await response.json();
 
-  //     // make post request
-  //     try {
-  //       const response = await fetch(
-  //         `https://api.imgbb.com/1/upload?key=${apiKey}`,
-  //         {
-  //           method: "POST",
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //           },
-  //           body: JSON.stringify({ image: base64Image }),
-  //         }
-  //       );
-
-  //       const result = await response.json();
-  //       if (result.success) {
-  //         alert("Image uploaded successfully!");
-  //         console.log(result.data.url);
-  //       } else {
-  //         alert("Failed to upload image.");
-  //         console.error(result);
-  //       }
-  //     } catch (error) {
-  //       alert("Error uploading image.");
-  //       console.error(error);
-  //     }
-  //   };
+      if (response.ok) {
+        alert("Image uploaded successfully!");
+        console.log(result);
+      } else {
+        alert("Failed to upload image.");
+        console.error(result);
+      }
+    } catch (error) {
+      alert("Error uploading image.");
+      console.error(error);
+    }
+  };
 
   return (
     <div className="w-full">
       <Header title="Upload" user={user} />
+      <p>please only upload high quality images!</p>
+      <select>
+        <option value="Reference">Reference</option>
+        <option value="Study">Study</option>
+      </select>
       <input type="file" accept="image/*" onChange={onFileChange} />
       <button onClick={onFileUpload}>upload</button>
     </div>

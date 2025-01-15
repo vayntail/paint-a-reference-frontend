@@ -12,16 +12,17 @@ const Header = ({ title, user }) => {
           <Link to="/upload">
             <img src="/icons/upload.svg" />
           </Link>
-
-          <div className="w-14 h-14 bg-slate-300 rounded-full"></div>
+          <Link to="/profile/:id">
+            <div className="w-14 h-14 bg-slate-300 rounded-full"></div>
+          </Link>
         </>
       ) : (
         <>
-          <Link to="/" className="signin-button w-fit h-fit min-w-fit">
-            Sign-up
-          </Link>
-          <Link to="/" className="signin-button w-fit h-fit min-w-fit">
+          <Link to="/login" className="signin-button w-fit h-fit min-w-fit">
             Log-in
+          </Link>
+          <Link to="/signup" className="signin-button w-fit h-fit min-w-fit">
+            Sign-up
           </Link>
         </>
       )}
