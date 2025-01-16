@@ -7,17 +7,10 @@ import ChallengesPage from "./pages/ChallengesPage";
 import UploadPage from "./pages/UploadPage";
 import ProfilePage from "./pages/ProfilePage";
 import AuthPage from "./pages/AuthPage";
+import { getUser } from "./utilities/usersServices";
 
 function App() {
-  const testUser = {
-    username: "Vayntail",
-    pfp: "https://i.pinimg.com/736x/33/ad/85/33ad8534500596f492edaa149a7b7322.jpg",
-    email: "",
-    password: "",
-    bio: "this is my bio :)",
-    favRefs: [],
-  };
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(getUser());
 
   return (
     <>
@@ -37,8 +30,14 @@ function App() {
             </>
           ) : (
             <>
-              <Route path="/login" element={<AuthPage signUp={false} />} />
-              <Route path="/signup" element={<AuthPage signUp={true} />} />
+              <Route
+                path="/login"
+                element={<AuthPage signUp={false} setUser={setUser} />}
+              />
+              <Route
+                path="/signup"
+                element={<AuthPage signUp={true} setUser={setUser} />}
+              />
             </>
           )}
         </Routes>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import LoginForm from "../components/LoginForm";
 import SignupForm from "../components/SignupForm";
 
-const AuthPage = ({ signUp }) => {
+const AuthPage = ({ signUp, setUser }) => {
   const [login, setLogin] = useState(!signUp);
 
   function togglePage() {
@@ -13,11 +13,11 @@ const AuthPage = ({ signUp }) => {
     <div className="w-full">
       {login ? (
         <>
-          <LoginForm toggleForm={togglePage} />
+          <LoginForm toggleForm={togglePage} setUser={setUser} />
         </>
       ) : (
         <>
-          <SignupForm toggleForm={togglePage} />
+          <SignupForm toggleForm={togglePage} setUser={setUser} />
         </>
       )}
     </div>

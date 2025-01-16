@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router";
 import usersServices from "../utilities/usersServices";
 
-const SignupForm = ({ toggleForm }) => {
+const SignupForm = ({ toggleForm, setUser }) => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -21,12 +21,17 @@ const SignupForm = ({ toggleForm }) => {
     e.preventDefault();
     try {
       const submitData = { ...formData };
+
+      console.log("inside sign up form:", submitData);
       delete submitData.confirmPassword;
 
       const user = await usersServices.signUp(submitData);
-      props.setUser(user);
+      setUser(user);
+      console.log(user);
+
+      window.location.href = "http://localhost:5173/"; // refresh page
     } catch (err) {
-      setError("sign up failed, try again");
+      setError("sign up failed, try again ", err);
     }
   };
 
