@@ -1,14 +1,14 @@
-import * as usersAPI from "./usersApi";
+import * as userAPI from "./userApi";
 
 export async function signUp(userData) {
   console.log("inside usersServices: " + userData);
-  const token = await usersAPI.signUp(userData);
+  const token = await userAPI.signUp(userData);
   localStorage.setItem("token", token);
   return getUser();
 }
 
 export async function login(credentials) {
-  const token = await usersAPI.login(credentials);
+  const token = await userAPI.login(credentials);
   localStorage.setItem("token", token);
   return getUser();
 }

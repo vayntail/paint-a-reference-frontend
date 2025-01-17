@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
-import usersServices from "../utilities/usersServices";
+import userServices from "../utilities/userServices";
 
 const SignupForm = ({ toggleForm, setUser }) => {
   const [formData, setFormData] = useState({
@@ -25,7 +25,7 @@ const SignupForm = ({ toggleForm, setUser }) => {
       console.log("inside sign up form:", submitData);
       delete submitData.confirmPassword;
 
-      const user = await usersServices.signUp(submitData);
+      const user = await userServices.signUp(submitData);
       setUser(user);
       console.log(user);
 

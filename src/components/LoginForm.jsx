@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
-import usersServices from "../utilities/usersServices";
+import userServices from "../utilities/userServices";
 
 const LoginForm = ({ toggleForm, setUser }) => {
   const [formData, setFormData] = useState({

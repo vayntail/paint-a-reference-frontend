@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router";
+import Pfp from "./Pfp";
 
 const Header = ({ title, user }) => {
+  console.log(user);
   return (
     <div className="flex justify-between w-full items-center gap-4 p-4">
       <h1 className="w-full">{title}</h1>
@@ -13,7 +15,7 @@ const Header = ({ title, user }) => {
             <img src="/icons/upload.svg" />
           </Link>
           <Link to="/profile/:id">
-            <div className="w-14 h-14 bg-slate-300 rounded-full"></div>
+            <Pfp src={user.pfp} />
           </Link>
         </>
       ) : (

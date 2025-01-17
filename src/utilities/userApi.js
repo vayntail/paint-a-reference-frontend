@@ -2,7 +2,7 @@ const URL = "http://localhost:8000/api/users";
 
 export async function signUp(userData) {
   console.log("inside usersAPI: " + userData); // working
-  const response = await fetch(API_URL, {
+  const response = await fetch(URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(userData),
@@ -16,7 +16,7 @@ export async function signUp(userData) {
 }
 
 export async function login(credentials) {
-  const response = await fetch(API_URL + "/login", {
+  const response = await fetch(URL + "/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(userData),

@@ -7,7 +7,7 @@ import ChallengesPage from "./pages/ChallengesPage";
 import UploadPage from "./pages/UploadPage";
 import ProfilePage from "./pages/ProfilePage";
 import AuthPage from "./pages/AuthPage";
-import { getUser } from "./utilities/usersServices";
+import { getUser } from "./utilities/userServices";
 
 function App() {
   const [user, setUser] = useState(getUser());
