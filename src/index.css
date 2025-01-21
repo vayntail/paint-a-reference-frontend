@@ -16,4 +16,13 @@ h1 {
   .signin-button {
     @apply bg-slate-300 p-2 rounded-sm hover:bg-slate-400;
   }
+  .primary-button {
+    @apply bg-slate-300 p-2 rounded-sm hover:bg-slate-400;
+  }
+  .secondary-button {
+    @apply bg-slate-300 p-2 rounded-sm hover:bg-slate-400;
+  }
+  .red-button {
+    @apply bg-red-400 p-2 rounded-sm hover:bg-red-600;
+  }
 }

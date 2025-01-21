@@ -27,4 +27,16 @@ export async function getAllRefs() {
   }
 }
 
-export default { upload, getAllRefs };
+// fetch reference by ID
+export async function getRefById(id) {
+  try {
+    const response = await fetch(URL + "/" + id, {
+      method: "GET",
+    });
+    return response.json();
+  } catch {
+    throw new Error("error fetching ref by id");
+  }
+}
+
+export default { upload, getAllRefs, getRefById };

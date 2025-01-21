@@ -15,7 +15,9 @@ const Header = ({ title, user }) => {
             <img src="/icons/upload.svg" />
           </Link>
           <Link to="/profile/:id">
-            <Pfp src={user.pfp} />
+            <div className="w-14">
+              <Pfp src={user.pfp} />
+            </div>
           </Link>
         </>
       ) : (

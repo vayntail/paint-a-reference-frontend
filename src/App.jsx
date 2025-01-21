@@ -18,6 +18,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<HomePage user={user} />} />
+          <Route path="/refs/:id" element={<HomePage user={user} />} />
           <Route path="/studies" element={<StudiesPage user={user} />} />
           <Route path="/challenges" element={<ChallengesPage user={user} />} />
           {user ? (

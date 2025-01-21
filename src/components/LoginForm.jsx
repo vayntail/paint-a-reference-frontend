@@ -5,7 +5,7 @@ import userServices from "../utilities/userServices";
 const LoginForm = ({ toggleForm, setUser }) => {
   const [formData, setFormData] = useState({
     email: "",
-    pasword: "",
+    password: "",
   });
 
   const [error, setError] = useState("");
@@ -59,7 +59,7 @@ const LoginForm = ({ toggleForm, setUser }) => {
           </button>
         </form>
         <p>{error}</p>
-        new?{" "}
+        new?
         <Link to="/signup" onClick={toggleForm}>
           create account
         </Link>

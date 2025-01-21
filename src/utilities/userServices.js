@@ -24,6 +24,11 @@ export function getToken() {
   return token;
 }
 
+export function getUserById(id) {
+  const user = userAPI.getUserById(id);
+  return user;
+}
+
 export function getUser() {
   const token = getToken();
   return token ? JSON.parse(atob(token.split(".")[1])).user : null;
@@ -33,4 +38,4 @@ export function logOut() {
   localStorage.removeItem("token");
 }
 
-export default { login, signUp };
+export default { login, signUp, getUserById, logOut };
