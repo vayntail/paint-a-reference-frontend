@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import ImagesGrid from "../components/ImagesGrid";
 import Pfp from "../components/Pfp";
 import Study from "../components/Study";
 import refServices from "../utilities/refServices";
@@ -54,7 +55,7 @@ const HomePage = ({ user }) => {
       getUserById(idRef.uploadedBy);
       console.log(idRef);
     }
-  }, [id, idRef]);
+  }, [id, idRef, refs]);
 
   return (
     <div className="w-full">
@@ -89,7 +90,10 @@ const HomePage = ({ user }) => {
                       <></>
                     ) : (
                       <>
-                        No studies posted yet. <u>Submit a study?</u>
+                        No studies posted yet.{" "}
+                        <Link to="/upload">
+                          <u>Submit a study?</u>
+                        </Link>
                       </>
                     )}
                     {/* <Study /> */}
@@ -103,16 +107,7 @@ const HomePage = ({ user }) => {
         </>
       )}
       {/* grid */}
-      <div className="flex gap-4">
-        {refs &&
-          refs.map((ref, index) => {
-            return (
-              <Link to={`/refs/${ref._id}`} key={index}>
-                <img className="max-h-48" src={ref.imageUrl} />
-              </Link>
-            );
-          })}
-      </div>
+      <ImagesGrid images={refs} />
     </div>
   );
 };
