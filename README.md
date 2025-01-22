@@ -8,30 +8,23 @@ This project is currently in development. Users can sign-up, log-in, and upload 
 
 # Screenshots
 
+They are just what I have so far!
 ![home screen](/public/screenshots/1.png)
-[ PRETEND OTHER SCREEN SHOT IS HERE ]
+![upload screen](/public/screenshots/2.png)
+![profile screen](/public/screenshots/3.png)
 
 # Installation and Setup Instructions
 
-Example:
+I will be hosting this live when it is more complete. However, to try it for yourself, you can clone and run:
 
-Clone down this repository. You will need node and npm installed globally on your machine.
+`npm run dev`
 
-Installation:
+Head over to https://github.com/vayntail/paint-a-reference-backend, clone, and run:
 
-npm install
+`node server.mjs`
 
-To Run Test Suite:
-
-npm test
-
-To Start Server:
-
-npm start
-
-To Visit App:
-
-localhost:3000/ideas
+To visit:
+http://localhost:5173
 
 # Reflection
 
